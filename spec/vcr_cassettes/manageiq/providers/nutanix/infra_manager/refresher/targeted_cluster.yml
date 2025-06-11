@@ -1,0 +1,109 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://hostname:9440/api/clustermgmt/v4.0/config/clusters/000633d6-6577-7490-6614-ac1f6b3d8797
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - identity
+      Accept:
+      - application/json
+      X-Ntnx-Api-Key:
+      - ''
+      Authorization:
+      - Basic YWRtaW46QWRtaW5AMzIx
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Content-Type:
+      - application/json
+      X-Ratelimit-Remaining:
+      - '29'
+      Etag:
+      - YXBwbGljYXRpb24vanNvbg==:d707e828a318839a238565b1a9363b2bdc2ae9603d9cdee4546a35668cf3a2f6
+      X-Xss-Protection:
+      - 1; mode=block
+      - 1; mode=block
+      Expires:
+      - '0'
+      X-Api-Ratelimit-Refresh-Period-Seconds:
+      - '1'
+      X-Api-Ratelimit-Reset:
+      - '0'
+      Content-Length:
+      - '10345'
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      Content-Encoding:
+      - identity
+      Pragma:
+      - no-cache
+      X-Api-Ratelimit-Remaining:
+      - '9'
+      X-Ratelimit-Limit:
+      - '30'
+      Date:
+      - Thu, 19 Jun 2025 17:44:25 GMT
+      X-Frame-Options:
+      - DENY
+      - SAMEORIGIN
+      Set-Cookie:
+      - NTNX_IAM_SESSION=CgVhZG1pbhDkn9HCBhoHTWVyY3VyeSAAKig3MDc3NjdiMDIzZGI0MTliMGIwMjljNzY0Y2Y1MmYwZDdlMjYxNDNl|P6Y+w+D7aS+wGiIQicAlUP8ekahYO0W4xgnxp2cR1Z8=;Expires=Thu,
+        19-Jun-2025 17:59:00 GMT;Path=/;Secure;HttpOnly;SameSite=Lax
+      - NTNX_MERCURY_IAM_REFRESH_TOKEN=Chl6bWtxZ3NoZzJteGR6cG1rZnFodGV0enFnEhl4dHhzdmdhZTZiNmZhdjMzdHVuYzRtcjdl;Expires=Thu,
+        19-Jun-2025 17:59:00 GMT;Path=/;Secure;HttpOnly;SameSite=Lax
+      - NTNX_MERCURY_IAM_SESSION=CgVhZG1pbhDkn9HCBhoHTWVyY3VyeSAAKig3MDc3NjdiMDIzZGI0MTliMGIwMjljNzY0Y2Y1MmYwZDdlMjYxNDNl|P6Y+w+D7aS+wGiIQicAlUP8ekahYO0W4xgnxp2cR1Z8=;Expires=Thu,
+        19-Jun-2025 17:59:00 GMT;Path=/;Secure;HttpOnly;SameSite=Lax
+      X-Api-Ratelimit-Limit:
+      - '10'
+      X-Ratelimit-Reset:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      X-Envoy-Upstream-Service-Time:
+      - '190'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Vary:
+      - Origin
+      Content-Security-Policy:
+      - 'connect-src ''self'' wss: https://downloads.frame.nutanix.com https://downloads.frame.nutanix.us;
+        default-src ''self'' https://*.nutanix.com; frame-ancestors ''self'' https://*.nutanix.com;
+        frame-src ''self'' https://*.nutanix.com blob: data:; img-src ''self'' blob:
+        data:; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''; style-src ''self''
+        ''unsafe-inline'''
+      Strict-Transport-Security:
+      - max-age=8640000:includeSubdomains
+      X-Permitted-Cross-Domain-Policies:
+      - master-only
+      X-Ntnx-Env:
+      - pc
+      X-Ntnx-Product:
+      - pc.2024.3.1.1
+      Server:
+      - envoy
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"$reserved":{"$fv":"v4.r0"},"$objectType":"clustermgmt.v4.config.Cluster","extId":"000633d6-6577-7490-6614-ac1f6b3d8797","vmCount":37,"backupEligibilityScore":4,"name":"Acme","nodes":{"numberOfNodes":4,"$reserved":{"$fv":"v4.r0"},"$objectType":"clustermgmt.v4.config.NodeReference","nodeList":[{"nodeUuid":"ee6058c6-280b-4d4f-ae77-718158011ead","$reserved":{"$fv":"v4.r0"},"$objectType":"clustermgmt.v4.config.NodeListItemReference","controllerVmIp":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPAddress","ipv4":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPv4Address","value":"192.168.1.144","prefixLength":32}},"hostIp":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPAddress","ipv4":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPv4Address","value":"192.168.1.140","prefixLength":32}}},{"nodeUuid":"ffb769ef-9599-49f7-8608-4b5d10d076e7","controllerVmIp":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPAddress","ipv4":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPv4Address","value":"192.168.1.146","prefixLength":32}},"hostIp":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPAddress","ipv4":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPv4Address","value":"192.168.1.142","prefixLength":32}}},{"nodeUuid":"1458ea7a-5d96-4671-935a-e41cbe3924c1","controllerVmIp":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPAddress","ipv4":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPv4Address","value":"192.168.1.147","prefixLength":32}},"hostIp":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPAddress","ipv4":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPv4Address","value":"192.168.1.143","prefixLength":32}}},{"nodeUuid":"c10b14da-a718-4b38-8db0-d676b2885244","controllerVmIp":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPAddress","ipv4":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPv4Address","value":"192.168.1.145","prefixLength":32}},"hostIp":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPAddress","ipv4":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPv4Address","value":"192.168.1.141","prefixLength":32}}}]},"config":{"incarnationId":1745845778609296,"hypervisorTypes":["AHV"],"timezone":"UTC","clusterSoftwareMap":[{"$reserved":{"$fv":"v4.r0"},"$objectType":"clustermgmt.v4.config.SoftwareMapReference","softwareType":"NCC","version":"ncc-5.1.1"},{"softwareType":"NOS","version":"el8.5-release-ganges-7.0.1-stable-5987da423c2c2fd2cf8b8b33a326d052274b72ec"}],"isRemoteSupportEnabled":false,"isLts":false,"isPasswordRemoteLoginEnabled":true,"isAvailable":true,"$reserved":{"$fv":"v4.r0"},"$objectType":"clustermgmt.v4.config.ClusterConfigReference","buildInfo":{"$reserved":{"$fv":"v4.r0"},"$objectType":"clustermgmt.v4.config.BuildReference","buildType":"release","version":"7.0","fullVersion":"el8.5-release-ganges-7.0.1-stable-5987da423c2c2fd2cf8b8b33a326d052274b72ec","commitId":"5987da423c2c2fd2cf8b8b33a326d052274b72ec","shortCommitId":"5987da"},"clusterFunction":["AOS"],"authorizedPublicKeyList":[{"$reserved":{"$fv":"v4.r0"},"$objectType":"clustermgmt.v4.config.PublicKey","name":"1458ea7a-5d96-4671-935a-e41cbe3924c1","key":"ssh-rsa
+        AAAAB3NzaC1yc2EAAAADAQABAAABgQDY4K4ggXw0/DFibkz4XCBK4D1ezPr7IS4gqbM/Vfh6k23xTcz+pMiutM34ZzYWjlPTQKRw6omEbsZnLpPxFgAfrATuJa8SeDPgKvprw2Cl7KMUB8NT3E6tct950sCIyBy5SmsTec0l9/fcYHPSUkHWdaVDF3OQTZiafJQ0ylVR6iQperi8Cvu9/m7VOHAejeW3us6D+yTeAzy9svptMGhpYGP+abH5yeETLILmmJAkZG/SNqFWNdbHmvZqCnm+CPoaLyLi+GAFZ48w4w8M1pfRljE7fK7XAeK/hBMFXCWQ2/R5aSNUiY7atYNeMoKJ//NXpcNfyedPuPWN60p6DYNyUe8duoPNqF1ipGc+Zobya1iaNOlqdoYDvstHFqLHwFQU5IhlM4Yl++Rbxv8wht717EKTvbhiOe+CkIcdpfiy0vlMRHMXEOehcB4TYhFZBjN3XC+1cDFyzrsn+0RbN2mNX4xfLFFOq/SBno4CAmGp57o1aX3y6tcrJ1SQ3dfr77c=
+        nutanix@ntnx-20sm6k300373-d-cvm"},{"name":"ee6058c6-280b-4d4f-ae77-718158011ead","key":"ssh-rsa
+        AAAAB3NzaC1yc2EAAAADAQABAAABgQCLsclIt8MH3exS/N1ThPSP0R7gjtLY0EfOdlxtu6/nRa7fdAqVmjxAx9KwFo+Mcx/Oeva4crRrlNcumsFdIrCypcRqMVMqbcpL8piTrbyrevXbIJENPPC52SBd36MN/L4B5BGWmjQdoU6LnGEY4uTCs9JW5btS9ZZgsISosgMOdTQTTndlqi8C2qzioxauxGNaaRfeSi8RxCsebMKpGrw4yvrfZMg0H0/XFuZ8newaqksAjzKOHiqfcr0q+an1wu6Rj2Gpi2iBkmfkTUEznlhoqhyEr/U0oneGMpglq0oTDPIbcQsjimAHXlRnoaK9F/7lojS53BDvaDLFOoXxxgiELqEOIbc+gWwmKjlkcFCVI1qXP8iyHGteA3AZUrJHktX9qujMi/D568B46Bsj4FqwArug2zuJTpAQ+dC/rmtEzKUn4M8ESHcMkM/+Vug0Jnuv3yq8D1E4CXBEZYlGkSRhW1gXfxJ/BXzQsCYXoQRLOAYk2irz3ekU+aJ4+rL+oNE=
+        nutanix@ntnx-20sm6k300373-a-cvm"},{"name":"ffb769ef-9599-49f7-8608-4b5d10d076e7","key":"ssh-rsa
+        AAAAB3NzaC1yc2EAAAADAQABAAABgQCmyTbN1wB68bNDRpE60kZEt2/qYxbC9VJKNi3AauaDkOJBLKb+qPklER/AUIIQ2Uzz2bmq8WdZYtwoaqKcQ/VYz/v/kIxsLQpfYIj8vE6SpZ6VxNg2YtwQXIQQEaeoMwRuZvTY7hEhNsbgkzO73iDxD5QOvErNBRCS6m9KfIdzOaqSR7xish/MS6EtGkMYrXuJ5NDo4gnCt01lOUJ3+5uPMyysTB86DAV5i7sX3WZNLUdQLuURO26aiUGq5cOKf2EzPIFK+fTyF7PNBuQIZdBAFggqZAr/lhgYZKccEpMFnfScriC6Io+BATWfEO2cknohZiI5bdgRRW8pPHa8+Nc4gN0b2Bexr1rSt+IYGW4nMT5nvWFPj5/3RQuCpREp88wRERcVSN+L6RaE2K8oSSi1Ewrifi7ZuSU9SNVfflUDrfNLiBXHSwQBrZVO5Cnoq0edJ1Tcxv8nIaVIwOwBzc6PF2gq+AzRknI7MgnVfTNQ5ZOo5obQaLtxTkMiX9wf+0E=
+        nutanix@ntnx-20sm6k300373-c-cvm"},{"name":"c10b14da-a718-4b38-8db0-d676b2885244","key":"ssh-rsa
+        AAAAB3NzaC1yc2EAAAADAQABAAABgQCqnw0zfgNYh4dS49xr7mNxonMEb76COqzgig5ClwuVWkJaF3gLvJBObeY4pQl7Fokc+xb8SwFwPK8WD+o/PxCrV2Vp7MTOKwUnxmz+pHtEKoZND5L4672c6n/eXiiG7jewF9YVAWgjKn1Ac8TaLedG4iXmcwpvWaUxvlVZmfcX5S03GwUYNcImcf5G+PGr/Uks68OjzrTuhNczgC2uhB/O9B5NmIrRBQSHypSezGqtdTWqLTENue0PwcYzcgl2O16gxVkh40g9gOYXdKNP1Umxky4gG9yUSCq8V114iNCW477Emcd7iJbIOYb/U/3dRn+wYLkSImWiL1dn/ZTfcdRLp1mUC6kA7dMshHAJJw1lciMJfOvnKpOQIsw5YUIm3JpFi4Rgf6SJUDDi+nrG7GLkn+0gaN7a/5964ywgeQmJ/eDf9yVOkxUr/tqQ4XIiksYdHB1EbzQ87lNJI7vh7slx2yBiyhn9lLBKeY02nv0W9Tfj2hXcrFtHtkph1xb3lIk=
+        nutanix@ntnx-20sm6k300373-b-cvm"}],"redundancyFactor":2,"clusterArch":"X86_64","faultToleranceState":{"currentMaxFaultTolerance":1,"desiredMaxFaultTolerance":1,"$reserved":{"$fv":"v4.r0"},"$objectType":"clustermgmt.v4.config.FaultToleranceState","domainAwarenessLevel":"NODE","currentClusterFaultTolerance":"CFT_1N_OR_1D","desiredClusterFaultTolerance":"CFT_1N_OR_1D"},"operationMode":"NORMAL","pulseStatus":{"$reserved":{"$fv":"v4.r0"},"$objectType":"clustermgmt.v4.config.PulseStatus","isEnabled":true}},"network":{"externalSubnet":"192.168.1.0/255.255.255.0","internalSubnet":"192.168.5.0/255.255.255.128","$reserved":{"$fv":"v4.r0"},"$objectType":"clustermgmt.v4.config.ClusterNetworkReference","externalAddress":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPAddress","ipv4":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPv4Address","value":"192.168.1.148","prefixLength":32}},"externalDataServiceIp":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPAddress","ipv4":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPv4Address","value":"192.168.1.149","prefixLength":32}},"nameServerIpList":[{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPAddressOrFQDN","ipv4":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPv4Address","value":"8.8.8.8","prefixLength":32}}],"ntpServerIpList":[{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPAddressOrFQDN","fqdn":{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.FQDN","value":"in.pool.ntp.org"}}],"backplane":{"$reserved":{"$fv":"v4.r0"},"$objectType":"clustermgmt.v4.config.BackplaneNetworkParams","isSegmentationEnabled":false}},"upgradeStatus":"SUCCEEDED"},"$reserved":{"$fv":"v4.r0"},"$objectType":"clustermgmt.v4.config.GetClusterApiResponse","metadata":{"flags":[{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.Flag","name":"hasError","value":false},{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.Flag","name":"isPaginated","value":false},{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.Flag","name":"isTruncated","value":false}],"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.response.ApiResponseMetadata","links":[{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.response.ApiLink","href":"https://192.168.1.150:9440/api/clustermgmt/v4.0/config/clusters/000633d6-6577-7490-6614-ac1f6b3d8797","rel":"self"},{"href":"https://192.168.1.150:9440/api/clustermgmt/v4.0/config/clusters/000633d6-6577-7490-6614-ac1f6b3d8797/snmp","rel":"snmp"},{"href":"https://192.168.1.150:9440/api/clustermgmt/v4.0/config/clusters/000633d6-6577-7490-6614-ac1f6b3d8797/rsyslog-servers","rel":"rsyslog-servers"},{"href":"https://192.168.1.150:9440/api/clustermgmt/v4.0/config/clusters/000633d6-6577-7490-6614-ac1f6b3d8797/rackable-units","rel":"rackable-units"},{"href":"https://192.168.1.150:9440/api/clustermgmt/v4.0/config/clusters/000633d6-6577-7490-6614-ac1f6b3d8797/fault-tolerance-status","rel":"fault-tolerance-status"},{"href":"https://192.168.1.150:9440/api/clustermgmt/v4.0/config/clusters/000633d6-6577-7490-6614-ac1f6b3d8797/hosts","rel":"hosts"},{"href":"https://192.168.1.150:9440/api/clustermgmt/v4.0/config/clusters/000633d6-6577-7490-6614-ac1f6b3d8797/virtual-gpu-profiles","rel":"virtual-gpu-profiles"},{"href":"https://192.168.1.150:9440/api/clustermgmt/v4.0/config/clusters/000633d6-6577-7490-6614-ac1f6b3d8797/physical-gpu-profiles","rel":"physical-gpu-profiles"},{"href":"https://192.168.1.150:9440/api/clustermgmt/v4.0/config/clusters/000633d6-6577-7490-6614-ac1f6b3d8797/$actions/discover-unconfigured-nodes","rel":"discover-unconfigured-nodes"},{"href":"https://192.168.1.150:9440/api/clustermgmt/v4.0/config/clusters/000633d6-6577-7490-6614-ac1f6b3d8797/$actions/fetch-node-networking-details","rel":"fetch-node-networking-details"},{"href":"https://192.168.1.150:9440/api/clustermgmt/v4.0/config/clusters/000633d6-6577-7490-6614-ac1f6b3d8797/$actions/expand-cluster","rel":"expand-cluster"},{"href":"https://192.168.1.150:9440/api/clustermgmt/v4.0/config/clusters/000633d6-6577-7490-6614-ac1f6b3d8797/$actions/remove-node","rel":"remove-node"},{"href":"https://192.168.1.150:9440/api/clustermgmt/v4.0/config/clusters/000633d6-6577-7490-6614-ac1f6b3d8797/$actions/check-hypervisor-requirements","rel":"check-hypervisor-requirements"},{"href":"https://192.168.1.150:9440/api/clustermgmt/v4.0/config/clusters/000633d6-6577-7490-6614-ac1f6b3d8797/$actions/validate-node","rel":"validate-node"}]}}'
+  recorded_at: Thu, 19 Jun 2025 17:44:24 GMT
+recorded_with: VCR 6.3.1
