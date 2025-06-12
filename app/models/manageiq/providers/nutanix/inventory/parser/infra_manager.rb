@@ -116,17 +116,12 @@ class ManageIQ::Providers::Nutanix::Inventory::Parser::InfraManager < ManageIQ::
 
   def parse_datastores
     collector.datastores.each do |ds|
-      name        = ds.name rescue "unknown"
-      ems_ref     = ds.ext_id || ds.uuid rescue nil
-      total_space = ds.resources&.map(&:size_bytes)&.sum rescue nil
-      free_space  = nil  # Nutanix Volume Groups may not expose this directly
-
       persister.storages.build(
-        :name        => name,
-        :store_type  => 'NutanixVolume',
-        :total_space => total_space,
-        :free_space  => free_space,
-        :ems_ref     => ems_ref
+        name: ds[:name],
+        store_type: ds[:store_type],
+        total_space: ds[:total_space],
+        free_space: ds[:free_space] || 0,
+        ems_ref: ds[:ems_ref]
       )
     end
   end
