@@ -1,0 +1,101 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://hostname:9440/api/vmm/v4.0/ahv/config/vms/69a6d1c5-79b6-4178-a529-46238569eeb2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/1.0.0/ruby
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - identity
+      Accept:
+      - application/json
+      X-Ntnx-Api-Key:
+      - ''
+      Authorization:
+      - Basic YWRtaW46QWRtaW5AMzIx
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Content-Type:
+      - application/json
+      X-Ratelimit-Remaining:
+      - '29'
+      Etag:
+      - YXBwbGljYXRpb24vanNvbg==:d707e828a318839a238565b1a9363b2bdc2ae9603d9cdee4546a35668cf3a2f6
+      X-Xss-Protection:
+      - 1; mode=block
+      - 1; mode=block
+      Expires:
+      - '0'
+      X-Api-Ratelimit-Refresh-Period-Seconds:
+      - '1'
+      X-Api-Ratelimit-Reset:
+      - '0'
+      Content-Length:
+      - '10345'
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      Content-Encoding:
+      - identity
+      Pragma:
+      - no-cache
+      X-Api-Ratelimit-Remaining:
+      - '9'
+      X-Ratelimit-Limit:
+      - '30'
+      Date:
+      - Thu, 19 Jun 2025 17:44:25 GMT
+      X-Frame-Options:
+      - DENY
+      - SAMEORIGIN
+      Set-Cookie:
+      - NTNX_IAM_SESSION=CgVhZG1pbhDkn9HCBhoHTWVyY3VyeSAAKig3MDc3NjdiMDIzZGI0MTliMGIwMjljNzY0Y2Y1MmYwZDdlMjYxNDNl|P6Y+w+D7aS+wGiIQicAlUP8ekahYO0W4xgnxp2cR1Z8=;Expires=Thu,
+        19-Jun-2025 17:59:00 GMT;Path=/;Secure;HttpOnly;SameSite=Lax
+      - NTNX_MERCURY_IAM_REFRESH_TOKEN=Chl6bWtxZ3NoZzJteGR6cG1rZnFodGV0enFnEhl4dHhzdmdhZTZiNmZhdjMzdHVuYzRtcjdl;Expires=Thu,
+        19-Jun-2025 17:59:00 GMT;Path=/;Secure;HttpOnly;SameSite=Lax
+      - NTNX_MERCURY_IAM_SESSION=CgVhZG1pbhDkn9HCBhoHTWVyY3VyeSAAKig3MDc3NjdiMDIzZGI0MTliMGIwMjljNzY0Y2Y1MmYwZDdlMjYxNDNl|P6Y+w+D7aS+wGiIQicAlUP8ekahYO0W4xgnxp2cR1Z8=;Expires=Thu,
+        19-Jun-2025 17:59:00 GMT;Path=/;Secure;HttpOnly;SameSite=Lax
+      X-Api-Ratelimit-Limit:
+      - '10'
+      X-Ratelimit-Reset:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      X-Envoy-Upstream-Service-Time:
+      - '190'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Vary:
+      - Origin
+      Content-Security-Policy:
+      - 'connect-src ''self'' wss: https://downloads.frame.nutanix.com https://downloads.frame.nutanix.us;
+        default-src ''self'' https://*.nutanix.com; frame-ancestors ''self'' https://*.nutanix.com;
+        frame-src ''self'' https://*.nutanix.com blob: data:; img-src ''self'' blob:
+        data:; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''; style-src ''self''
+        ''unsafe-inline'''
+      Strict-Transport-Security:
+      - max-age=8640000:includeSubdomains
+      X-Permitted-Cross-Domain-Policies:
+      - master-only
+      X-Ntnx-Env:
+      - pc
+      X-Ntnx-Product:
+      - pc.2024.3.1.1
+      Server:
+      - envoy
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.Vm","extId":"69a6d1c5-79b6-4178-a529-46238569eeb2","createTime":"2025-04-28T14:27:39.495755Z","updateTime":"2025-05-26T13:54:24.372435Z","isLiveMigrateCapable":true,"isCrossClusterMigrationInProgress":false,"bootConfig":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.LegacyBoot","bootOrder":["CDROM","DISK","NETWORK"]},"name":"PC-NameOption-1","description":"NutanixPrismCentral","numSockets":4,"numCoresPerSocket":1,"numThreadsPerCore":1,"numNumaNodes":0,"memorySizeBytes":19327352832,"isVcpuHardPinningEnabled":false,"isCpuPassthroughEnabled":false,"isMemoryOvercommitEnabled":false,"isGpuConsoleEnabled":false,"isCpuHotplugEnabled":true,"isScsiControllerEnabled":true,"generationUuid":"9ca5ef81-f2d1-4806-a6f1-2430211a5e55","biosUuid":"69a6d1c5-79b6-4178-a529-46238569eeb2","ownershipInfo":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.OwnershipInfo","owner":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.OwnerReference","extId":"00000000-0000-0000-0000-000000000000"}},"host":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.HostReference","extId":"ffb769ef-9599-49f7-8608-4b5d10d076e7"},"cluster":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.ClusterReference","extId":"000633d6-6577-7490-6614-ac1f6b3d8797"},"hardwareClockTimezone":"UTC","isBrandingEnabled":true,"isVgaConsoleEnabled":true,"machineType":"PC","powerState":"ON","vtpmConfig":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.VtpmConfig","isVtpmEnabled":false},"isAgentVm":false,"apcConfig":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.ApcConfig","isApcEnabled":false},"disks":[{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.Disk","extId":"01bdc02a-488b-4181-97b0-f550f60b964e","backingInfo":{"diskExtId":"01bdc02a-488b-4181-97b0-f550f60b964e","isMigrationInProgress":false,"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.VmDisk","diskSizeBytes":15728640,"storageContainer":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.VmDiskContainerReference","extId":"ccdb2458-3fe0-4df1-acbe-3d751abc9648"}},"diskAddress":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.DiskAddress","busType":"SCSI","index":0}},{"extId":"33c994ee-59ce-489e-84c8-a98f0f21a6fb","backingInfo":{"diskExtId":"33c994ee-59ce-489e-84c8-a98f0f21a6fb","isMigrationInProgress":false,"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.VmDisk","diskSizeBytes":75161927680,"storageContainer":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.VmDiskContainerReference","extId":"ccdb2458-3fe0-4df1-acbe-3d751abc9648"}},"diskAddress":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.DiskAddress","busType":"SCSI","index":1}},{"extId":"a4f150ea-fb28-43b5-9b36-ae2b9e29bd56","backingInfo":{"diskExtId":"a4f150ea-fb28-43b5-9b36-ae2b9e29bd56","isMigrationInProgress":false,"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.VmDisk","diskSizeBytes":32212254720,"storageContainer":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.VmDiskContainerReference","extId":"ccdb2458-3fe0-4df1-acbe-3d751abc9648"}},"diskAddress":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.DiskAddress","busType":"SCSI","index":6}},{"extId":"ee2373ab-476f-41fb-8991-6648bf868992","backingInfo":{"diskExtId":"ee2373ab-476f-41fb-8991-6648bf868992","isMigrationInProgress":false,"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.VmDisk","diskSizeBytes":107374182400,"storageContainer":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.VmDiskContainerReference","extId":"ccdb2458-3fe0-4df1-acbe-3d751abc9648"}},"diskAddress":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.DiskAddress","busType":"SCSI","index":3}},{"extId":"5f1f901e-9e7f-4b1a-a679-397e1229f0c1","backingInfo":{"diskExtId":"5f1f901e-9e7f-4b1a-a679-397e1229f0c1","isMigrationInProgress":false,"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.VmDisk","diskSizeBytes":107374182400,"storageContainer":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.VmDiskContainerReference","extId":"ccdb2458-3fe0-4df1-acbe-3d751abc9648"}},"diskAddress":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.DiskAddress","busType":"SCSI","index":5}},{"extId":"a3b2abc6-6ed2-456e-b6ad-b119cbf87b63","backingInfo":{"diskExtId":"a3b2abc6-6ed2-456e-b6ad-b119cbf87b63","isMigrationInProgress":false,"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.VmDisk","diskSizeBytes":15338569728,"storageContainer":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.VmDiskContainerReference","extId":"ccdb2458-3fe0-4df1-acbe-3d751abc9648"}},"diskAddress":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.DiskAddress","busType":"SCSI","index":4}},{"extId":"b4701f9c-b918-4e9c-934e-c6d4ca917e04","backingInfo":{"diskExtId":"b4701f9c-b918-4e9c-934e-c6d4ca917e04","isMigrationInProgress":false,"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.VmDisk","diskSizeBytes":289910292480,"storageContainer":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.VmDiskContainerReference","extId":"ccdb2458-3fe0-4df1-acbe-3d751abc9648"}},"diskAddress":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.DiskAddress","busType":"SCSI","index":7}}],"cdRoms":[{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.CdRom","extId":"0f36e429-b5dd-4716-9ed2-0c6b92b89fba","diskAddress":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.CdRomAddress","busType":"IDE","index":0},"backingInfo":{"diskExtId":"0f36e429-b5dd-4716-9ed2-0c6b92b89fba","isMigrationInProgress":false,"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.VmDisk","diskSizeBytes":376832,"storageContainer":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.VmDiskContainerReference","extId":"ccdb2458-3fe0-4df1-acbe-3d751abc9648"}},"isoType":"OTHER"}],"nics":[{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.Nic","extId":"a75337ff-563b-49ba-9cc6-8a7b8d22df95","backingInfo":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.EmulatedNic","macAddress":"50:6b:8d:c3:f1:67","isConnected":true,"numQueues":1},"networkInfo":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.NicNetworkInfo","nicType":"NORMAL_NIC","subnet":{"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.SubnetReference","extId":"38639cab-28c8-415a-8008-269e69307b60"},"vlanMode":"ACCESS","ipv4Info":{"learnedIpAddresses":[{"$reserved":{"$fv":"v1.r0"},"$objectType":"common.v1.config.IPv4Address","value":"192.168.1.150","prefixLength":32}],"$reserved":{"$fv":"v4.r0"},"$objectType":"vmm.v4.ahv.config.Ipv4Info"}}}],"protectionType":"UNPROTECTED"}}'
+  recorded_at: Thu, 19 Jun 2025 17:44:24 GMT
+recorded_with: VCR 6.3.1

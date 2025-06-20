@@ -1,9 +1,9 @@
 class ManageIQ::Providers::Nutanix::Inventory::Parser::InfraManager < ManageIQ::Providers::Nutanix::Inventory::Parser
   def parse
-    parse_hosts
     parse_clusters
+    parse_hosts
     parse_templates
-    collector.vms.each { |vm| parse_vm(vm) }
+    parse_vms
     parse_datastores
   end
 
@@ -40,38 +40,40 @@ class ManageIQ::Providers::Nutanix::Inventory::Parser::InfraManager < ManageIQ::
     end
   end
 
-  def parse_vm(vm)
-    # Get OS info from VM description (or other available fields)
-    os_info = vm.description.to_s.match(/OS: (.+)/)&.captures&.first || 'unknown'
+  def parse_vms
+    collector.vms.each do |vm|
+      # Get OS info from VM description (or other available fields)
+      os_info = vm.description.to_s.match(/OS: (.+)/)&.captures&.first || 'unknown'
 
-    # Main VM attributes
-    vm_obj = persister.vms.build(
-      :ems_ref          => vm.ext_id,
-      :uid_ems          => vm.bios_uuid,
-      :name             => vm.name,
-      :description      => vm.description,
-      :location         => vm.cluster&.ext_id || "unknown",
-      :vendor           => "nutanix",
-      :raw_power_state  => vm.power_state,
-      :host             => persister.hosts.lazy_find(vm.host&.ext_id),
-      :ems_cluster      => persister.clusters.lazy_find(vm.cluster&.ext_id),
-      :ems_id           => persister.manager.id,
-      :connection_state => "connected",
-      :boot_time        => vm.create_time
-    )
+      # Main VM attributes
+      vm_obj = persister.vms.build(
+        :ems_ref          => vm.ext_id,
+        :uid_ems          => vm.bios_uuid,
+        :name             => vm.name,
+        :description      => vm.description,
+        :location         => vm.cluster&.ext_id || "unknown",
+        :vendor           => "nutanix",
+        :raw_power_state  => vm.power_state,
+        :host             => persister.hosts.lazy_find(vm.host&.ext_id),
+        :ems_cluster      => persister.clusters.lazy_find(vm.cluster&.ext_id),
+        :ems_id           => persister.manager.id,
+        :connection_state => "connected",
+        :boot_time        => vm.create_time
+      )
 
-    hardware = persister.hardwares.build(
-      :vm_or_template       => vm_obj,
-      :memory_mb            => vm.memory_size_bytes / 1.megabyte,
-      :cpu_total_cores      => vm.num_sockets * vm.num_cores_per_socket,
-      :cpu_sockets          => vm.num_sockets,
-      :cpu_cores_per_socket => vm.num_cores_per_socket,
-      :guest_os             => os_info # Use extracted OS info
-    )
-    # Then use vm_obj for subsequent associations
-    parse_disks(vm, hardware)  # This should reference the hardware object
-    parse_nics(vm, hardware)
-    parse_operating_system(vm, hardware, os_info, vm_obj)
+      hardware = persister.hardwares.build(
+        :vm_or_template       => vm_obj,
+        :memory_mb            => vm.memory_size_bytes / 1.megabyte,
+        :cpu_total_cores      => vm.num_sockets * vm.num_cores_per_socket,
+        :cpu_sockets          => vm.num_sockets,
+        :cpu_cores_per_socket => vm.num_cores_per_socket,
+        :guest_os             => os_info # Use extracted OS info
+      )
+      # Then use vm_obj for subsequent associations
+      parse_disks(vm, hardware) # This should reference the hardware object
+      parse_nics(vm, hardware)
+      parse_operating_system(vm, hardware, os_info, vm_obj)
+    end
   end
 
   def parse_disks(vm, hardware)
