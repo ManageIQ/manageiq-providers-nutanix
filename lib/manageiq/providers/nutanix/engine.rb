@@ -4,7 +4,7 @@ module ManageIQ
       class Engine < ::Rails::Engine
         isolate_namespace ManageIQ::Providers::Nutanix
 
-        config.autoload_paths << root.join('lib').to_s
+        config.autoload_paths << root.join('lib')
 
         initializer "manageiq.providers.nutanix.vendor_registration", :after => :load_config_initializers do
           if defined?(::VmOrTemplate::VENDOR_TYPES) && !::VmOrTemplate::VENDOR_TYPES.include?("nutanix")
