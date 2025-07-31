@@ -130,15 +130,6 @@ class ManageIQ::Providers::Nutanix::InfraManager < ManageIQ::Providers::InfraMan
     return [params[:default_userid], ManageIQ::Password.encrypt(params[:default_password])]
   end
 
-  def self.hostname_required?
-    # TODO: ExtManagementSystem is validating this
-    false
-  end
-
-  def parent_manager
-    nil
-  end
-
   def self.raw_connect(hostname, port, username, password, verify_ssl)
     require "nutanix_vmm"
 
