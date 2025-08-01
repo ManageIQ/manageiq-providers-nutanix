@@ -110,9 +110,14 @@ describe ManageIQ::Providers::Nutanix::InfraManager::Refresher do
         :raw_power_state => "never",
         :vendor          => "nutanix"
       )
-
       expect(template.parent_blue_folder).to eq(ems.ems_folders.find_by(:ems_ref => "vm_folder"))
       expect(template.parent_datacenter).to  eq(ems.datacenters.find_by(:name => "Datacenter"))
+      expect(template.hardware).to have_attributes(
+        :cpu_sockets          => 4,
+        :cpu_total_cores      => 4,
+        :cpu_cores_per_socket => 1,
+        :memory_mb            => 4_096
+      )
     end
 
     def assert_specific_host

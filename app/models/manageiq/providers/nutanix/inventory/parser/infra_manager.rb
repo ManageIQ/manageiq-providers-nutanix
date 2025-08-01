@@ -184,7 +184,7 @@ class ManageIQ::Providers::Nutanix::Inventory::Parser::InfraManager < ManageIQ::
 
   def parse_templates
     collector.templates.each do |template|
-      persister.miq_templates.build(
+      template_obj = persister.miq_templates.build(
         :ems_ref         => template.ext_id || template.uuid || template.id,
         :uid_ems         => template.ext_id || template.uuid || template.id,
         :name            => template.template_name || "Unnamed Template",
@@ -192,6 +192,17 @@ class ManageIQ::Providers::Nutanix::Inventory::Parser::InfraManager < ManageIQ::
         :location        => template.try(:storage_container_path) || template.try(:uri) || "unknown-location",
         :raw_power_state => 'never',
         :parent          => persister.ems_folders.lazy_find("vm_folder")
+      )
+
+      vm_spec   = template&.template_version_spec&.vm_spec
+      memory_mb = vm_spec.memory_size_bytes / 1.megabyte if vm_spec&.memory_size_bytes
+
+      persister.hardwares.build(
+        :vm_or_template       => template_obj,
+        :memory_mb            => memory_mb,
+        :cpu_total_cores      => vm_spec.num_sockets * vm_spec.num_cores_per_socket,
+        :cpu_sockets          => vm_spec.num_sockets,
+        :cpu_cores_per_socket => vm_spec.num_cores_per_socket
       )
     end
   end
