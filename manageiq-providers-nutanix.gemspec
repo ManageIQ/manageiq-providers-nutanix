@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "simplecov",  ">= 0.21.2"
 
   spec.add_dependency "nutanix_clustermgmt", "~> 0.1"
+  spec.add_dependency "nutanix_prism",       "~> 0.1"
   spec.add_dependency "nutanix_vmm",         "~> 0.1"
   spec.add_dependency "nutanix_volumes",     "~> 0.1"
 end
