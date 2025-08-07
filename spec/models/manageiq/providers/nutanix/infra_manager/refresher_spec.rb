@@ -62,6 +62,8 @@ describe ManageIQ::Providers::Nutanix::InfraManager::Refresher do
     end
 
     def assert_ems_counts
+      expect(ems.datacenters.count).to eq(1)
+      expect(ems.ems_folders.count).to eq(4)
       expect(ems.vms.count).to eq(26)
       expect(ems.miq_templates.count).to eq(1)
       expect(ems.hosts.count).to eq(4)
@@ -79,6 +81,9 @@ describe ManageIQ::Providers::Nutanix::InfraManager::Refresher do
         :host        => ems.hosts.find_by(:ems_ref => "1458ea7a-5d96-4671-935a-e41cbe3924c1"),
         :ems_cluster => ems.ems_clusters.find_by(:ems_ref => "000633d6-6577-7490-6614-ac1f6b3d8797")
       )
+
+      expect(vm.parent_blue_folder).to eq(ems.ems_folders.find_by(:ems_ref => "vm_folder"))
+      expect(vm.parent_datacenter).to  eq(ems.datacenters.find_by(:name => "Datacenter"))
 
       expect(vm.hardware).to have_attributes(
         :cpu_sockets     => 4,
@@ -105,6 +110,9 @@ describe ManageIQ::Providers::Nutanix::InfraManager::Refresher do
         :raw_power_state => "never",
         :vendor          => "nutanix"
       )
+
+      expect(template.parent_blue_folder).to eq(ems.ems_folders.find_by(:ems_ref => "vm_folder"))
+      expect(template.parent_datacenter).to  eq(ems.datacenters.find_by(:name => "Datacenter"))
     end
 
     def assert_specific_host
