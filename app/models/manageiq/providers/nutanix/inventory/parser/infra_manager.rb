@@ -74,6 +74,13 @@ class ManageIQ::Providers::Nutanix::Inventory::Parser::InfraManager < ManageIQ::
         :cpu_sockets     => host.number_of_cpu_sockets,
         :cpu_total_cores => host.number_of_cpu_cores
       )
+
+      collector.datastores_by_cluster[host.cluster.uuid]&.each do |ds|
+        persister.host_storages.build(
+          :host    => persister_host,
+          :storage => persister.storages.lazy_find(ds.container_ext_id)
+        )
+      end
     end
   end
 
