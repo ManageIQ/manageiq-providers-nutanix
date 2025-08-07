@@ -1,5 +1,6 @@
 class ManageIQ::Providers::Nutanix::Inventory::Parser::InfraManager < ManageIQ::Providers::Nutanix::Inventory::Parser
   def parse
+    parse_datacenters
     parse_clusters
     parse_hosts
     parse_templates
@@ -9,12 +10,48 @@ class ManageIQ::Providers::Nutanix::Inventory::Parser::InfraManager < ManageIQ::
 
   private
 
+  def parse_datacenters
+    root_folder = persister.ems_folders.build(
+      :name    => "Datacenters",
+      :type    => "ManageIQ::Providers::Nutanix::InfraManager::Folder",
+      :uid_ems => "root",
+      :ems_ref => "root",
+      :hidden  => false,
+      :parent  => nil
+    )
+
+    datacenter = persister.ems_folders.build(
+      :name    => "Datacenter",
+      :uid_ems => "root_dc",
+      :ems_ref => "root_dc",
+      :type    => "ManageIQ::Providers::Nutanix::InfraManager::Datacenter",
+      :parent  => root_folder
+    )
+
+    persister.ems_folders.build(
+      :name    => "Clusters",
+      :ems_ref => "host_folder",
+      :uid_ems => "host_folder",
+      :type    => "ManageIQ::Providers::Nutanix::InfraManager::Folder",
+      :parent  => datacenter
+    )
+
+    persister.ems_folders.build(
+      :name    => "Vms",
+      :ems_ref => "vm_folder",
+      :uid_ems => "vm_folder",
+      :type    => "ManageIQ::Providers::Nutanix::InfraManager::Folder",
+      :parent  => datacenter
+    )
+  end
+
   def parse_clusters
     collector.clusters.each do |cluster|
       persister.clusters.build(
         :ems_ref => cluster.ext_id,
         :name    => cluster.name,
-        :uid_ems => cluster.ext_id
+        :uid_ems => cluster.ext_id,
+        :parent  => persister.ems_folders.lazy_find("host_folder")
       )
     end
   end
@@ -58,7 +95,8 @@ class ManageIQ::Providers::Nutanix::Inventory::Parser::InfraManager < ManageIQ::
         :ems_cluster      => persister.clusters.lazy_find(vm.cluster&.ext_id),
         :ems_id           => persister.manager.id,
         :connection_state => "connected",
-        :boot_time        => vm.create_time
+        :boot_time        => vm.create_time,
+        :parent           => persister.ems_folders.lazy_find("vm_folder")
       )
 
       hardware = persister.hardwares.build(
@@ -145,7 +183,8 @@ class ManageIQ::Providers::Nutanix::Inventory::Parser::InfraManager < ManageIQ::
         :name            => template.template_name || "Unnamed Template",
         :vendor          => "nutanix",
         :location        => template.try(:storage_container_path) || template.try(:uri) || "unknown-location",
-        :raw_power_state => 'never'
+        :raw_power_state => 'never',
+        :parent          => persister.ems_folders.lazy_find("vm_folder")
       )
     end
   end
