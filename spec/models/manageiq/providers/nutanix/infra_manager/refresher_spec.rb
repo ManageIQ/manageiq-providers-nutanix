@@ -123,6 +123,7 @@ describe ManageIQ::Providers::Nutanix::InfraManager::Refresher do
         :type        => "ManageIQ::Providers::Nutanix::InfraManager::Host",
         :ems_cluster => ems.ems_clusters.find_by(:ems_ref => "000633d6-6577-7490-6614-ac1f6b3d8797")
       )
+      expect(host.storages.count).to eq(5)
       expect(host.hardware).to have_attributes(
         :memory_mb       => 772_153,
         :cpu_sockets     => 2,

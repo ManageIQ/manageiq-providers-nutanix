@@ -5,6 +5,7 @@ class ManageIQ::Providers::Nutanix::Inventory::Persister < ManageIQ::Providers::
     # Core collections
     add_collection(infra, :vms)
     add_collection(infra, :hosts)
+    add_collection(infra, :host_storages)
     add_collection(infra, :clusters)
     add_collection(infra, :ems_folders)
     # Hardware and devices

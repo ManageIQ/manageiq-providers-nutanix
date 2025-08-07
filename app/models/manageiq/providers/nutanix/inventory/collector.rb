@@ -6,6 +6,10 @@ class ManageIQ::Providers::Nutanix::Inventory::Collector < ManageIQ::Providers::
     super
   end
 
+  def datastores_by_cluster
+    @datastores_by_cluster ||= datastores.group_by { |ds| ds.cluster_ext_id }
+  end
+
   private
 
   def cluster_mgmt_connection
