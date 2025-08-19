@@ -1,6 +1,6 @@
 # ManageIQ::Providers::Nutanix
 
-[![CI](https://github.com/ManageIQ/manageiq-providers-nutanix/actions/workflows/ci.yaml/badge.svg)](https://github.com/ManageIQ/manageiq-providers-nutanix/actions/workflows/ci.yaml)
+[![CI](https://github.com/ManageIQ/manageiq-providers-nutanix/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/ManageIQ/manageiq-providers-nutanix/actions/workflows/ci.yaml)
 [![Code Climate](https://codeclimate.com/github/ManageIQ/manageiq-providers-nutanix.svg)](https://codeclimate.com/github/ManageIQ/manageiq-providers-nutanix)
 [![Test Coverage](https://codeclimate.com/github/ManageIQ/manageiq-providers-nutanix/badges/coverage.svg)](https://codeclimate.com/github/ManageIQ/manageiq-providers-nutanix/coverage)
 
