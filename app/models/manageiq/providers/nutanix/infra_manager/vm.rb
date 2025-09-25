@@ -27,7 +27,7 @@ class ManageIQ::Providers::Nutanix::InfraManager::Vm < ManageIQ::Providers::Infr
 
   # Add custom methods for UI display
   def mac_addresses
-    hardware.nics.map(&:mac_address).compact
+    hardware.nics.map(&:address).compact
   end
 
   def ip_addresses
