@@ -1,5 +1,6 @@
 class ManageIQ::Providers::Nutanix::InfraManager < ManageIQ::Providers::InfraManager
   supports :create
+  supports :provisioning
 
   def allow_targeted_refresh?
     true

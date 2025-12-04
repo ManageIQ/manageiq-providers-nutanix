@@ -23,17 +23,34 @@ describe ManageIQ::Providers::Nutanix::InfraManager::Refresher do
     context "targeted refresh" do
       context "vm" do
         before        { with_vcr { EmsRefresh.refresh(ems) } }
-        let(:targets) { [ems.vms.find_by(:ems_ref => "69a6d1c5-79b6-4178-a529-46238569eeb2")] }
+        context "with vm object target" do
+          let(:targets) { [ems.vms.find_by(:ems_ref => "69a6d1c5-79b6-4178-a529-46238569eeb2")] }
 
-        it "performs a targeted refresh" do
-          with_vcr("targeted_vm") { subject.refresh }
+          it "performs a targeted refresh" do
+            with_vcr("targeted_vm") { subject.refresh }
 
-          assert_counts
-          assert_ems_counts
-          assert_specific_vm
-          assert_specific_template
-          assert_specific_host
-          assert_specific_cluster
+            assert_counts
+            assert_ems_counts
+            assert_specific_vm
+            assert_specific_template
+            assert_specific_host
+            assert_specific_cluster
+          end
+        end
+
+        context "with InventoryRefresh::Target" do
+          let(:targets) { [InventoryRefresh::Target.new(:association => :vms, :manager_ref => {:ems_ref => "69a6d1c5-79b6-4178-a529-46238569eeb2"}, :manager => ems)] }
+
+          it "performs a targeted refresh" do
+            with_vcr("targeted_vm") { subject.refresh }
+
+            assert_counts
+            assert_ems_counts
+            assert_specific_vm
+            assert_specific_template
+            assert_specific_host
+            assert_specific_cluster
+          end
         end
       end
 
