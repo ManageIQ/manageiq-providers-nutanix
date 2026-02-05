@@ -122,6 +122,8 @@ class ManageIQ::Providers::Nutanix::Inventory::Parser::InfraManager < ManageIQ::
   end
 
   def parse_disks(vm, hardware)
+    return if vm.disks.nil?
+
     vm.disks.each do |disk|
       # Get disk size from backing info
       size_bytes = disk.backing_info&.disk_size_bytes rescue nil
@@ -138,6 +140,8 @@ class ManageIQ::Providers::Nutanix::Inventory::Parser::InfraManager < ManageIQ::
   end
 
   def parse_nics(vm, hardware)
+    return if vm.nics.nil?
+
     vm.nics.each_with_index do |nic, index|
       # Get IP/MAC from NIC structure
       ip_address  = nic.network_info&.ipv4_config&.ip_address&.value rescue nil
