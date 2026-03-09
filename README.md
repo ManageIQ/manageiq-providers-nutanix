@@ -1,6 +1,6 @@
 # ManageIQ::Providers::Nutanix
 
-[![CI](https://github.com/ManageIQ/manageiq-providers-nutanix/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/ManageIQ/manageiq-providers-nutanix/actions/workflows/ci.yaml)
+[![CI](https://github.com/ManageIQ/manageiq-providers-nutanix/actions/workflows/ci.yaml/badge.svg?branch=tal)](https://github.com/ManageIQ/manageiq-providers-nutanix/actions/workflows/ci.yaml)
 
 ManageIQ plugin for the Nutanix provider.
 
