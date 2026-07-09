@@ -3,6 +3,7 @@ class ManageIQ::Providers::Nutanix::Inventory::Persister < ManageIQ::Providers::
     super
 
     # Core collections
+    add_collection(infra, :ext_management_system)
     add_collection(infra, :vms)
     add_collection(infra, :hosts)
     add_collection(infra, :host_storages)
@@ -21,6 +22,5 @@ class ManageIQ::Providers::Nutanix::Inventory::Persister < ManageIQ::Providers::
     add_collection(infra, :parent_blue_folders)
     add_collection(infra, :vm_parent_blue_folders)
     add_collection(infra, :vm_resource_pools)
-    add_collection(infra, :root_folder_relationship)
   end
 end

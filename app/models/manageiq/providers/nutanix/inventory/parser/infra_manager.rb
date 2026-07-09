@@ -1,5 +1,6 @@
 class ManageIQ::Providers::Nutanix::Inventory::Parser::InfraManager < ManageIQ::Providers::Nutanix::Inventory::Parser
   def parse
+    parse_ems
     parse_datacenters
     parse_clusters
     parse_hosts
@@ -10,6 +11,10 @@ class ManageIQ::Providers::Nutanix::Inventory::Parser::InfraManager < ManageIQ::
 
   private
 
+  def parse_ems
+    persister.ext_management_system.build(:guid => persister.manager.guid)
+  end
+
   def parse_datacenters
     root_folder = persister.ems_folders.build(
       :name    => "Datacenters",
@@ -17,7 +22,7 @@ class ManageIQ::Providers::Nutanix::Inventory::Parser::InfraManager < ManageIQ::
       :uid_ems => "root",
       :ems_ref => "root",
       :hidden  => false,
-      :parent  => nil
+      :parent  => persister.ext_management_system.lazy_find(persister.manager.guid)
     )
 
     datacenter = persister.ems_folders.build(
