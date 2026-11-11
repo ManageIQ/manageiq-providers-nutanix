@@ -23,5 +23,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "nutanix_clustermgmt", "~> 0.1.0"
   spec.add_dependency "nutanix_vmm",         "~> 0.1.0"
-  spec.add_dependency "nutanix_volumes",     "~> 0.1.0"
+  spec.add_dependency "nutanix_volumes",     "~> 0.2.0"
 end
